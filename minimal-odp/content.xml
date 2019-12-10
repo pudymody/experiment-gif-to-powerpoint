@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<office:document-content xmlns:dom="http://www.w3.org/2001/xml-events"
+	xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+	xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+	xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0"
+	xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+	xmlns:smil="urn:oasis:names:tc:opendocument:xmlns:smil-compatible:1.0"
+	xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+	xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+	xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+	xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0">
+	<office:automatic-styles>
+		<style:style style:family="drawing-page" style:name="a335">
+			<style:drawing-page-properties draw:fill="solid" draw:fill-color="#ffffff" draw:opacity="100%"
+				presentation:transition-type="manual" presentation:visibility="visible" draw:background-size="border"
+				presentation:background-objects-visible="true" presentation:background-visible="true"
+				presentation:display-header="false" presentation:display-footer="false"
+				presentation:display-page-number="false" presentation:display-date-time="false" />
+		</style:style>
+		<style:style style:family="graphic" style:name="a336" style:parent-style-name="Graphics">
+			<style:graphic-properties draw:fill="none" draw:stroke="none" />
+		</style:style>
+	</office:automatic-styles>
+	<office:body>
+		<office:presentation>
+			<draw:page draw:name="Slide1" draw:style-name="a335"
+				draw:master-page-name="Master1-Layout1"
+				presentation:presentation-page-layout-name="Master1-PPL1">
+				<draw:frame draw:id="id63" draw:style-name="a336" draw:name="4 Imagen" svg:x="0.00174in"
+					svg:y="0.00174in" svg:width="4.6875in" svg:height="4.6875in" style:rel-width="scale"
+					style:rel-height="scale">
+					<draw:image xlink:href="media/image1.jpeg" xlink:type="simple" xlink:show="embed"
+						xlink:actuate="onLoad" />
+					<svg:desc>trooper3.jpg</svg:desc>
+				</draw:frame>
+			</draw:page>
+			<draw:page draw:name="Slide2" draw:style-name="a335"
+				draw:master-page-name="Master1-Layout1"
+				presentation:presentation-page-layout-name="Master1-PPL1">
+				<draw:frame draw:id="id64" draw:style-name="a336" draw:name="3 Imagen" svg:x="0.00174in"
+					svg:y="0.00174in" svg:width="4.6875in" svg:height="4.6875in" style:rel-width="scale"
+					style:rel-height="scale">
+					<draw:image xlink:href="media/image1.jpeg" xlink:type="simple" xlink:show="embed"
+						xlink:actuate="onLoad" />
+					<svg:desc>trooper3.jpg</svg:desc>
+				</draw:frame>
+			</draw:page>
+			<presentation:settings presentation:endless="true" />
+		</office:presentation>
+	</office:body>
+</office:document-content>
