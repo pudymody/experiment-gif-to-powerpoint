@@ -42,8 +42,8 @@ fn decode( src: PathBuf, mut folder: PathBuf) -> Result<(Vec<u16>,f64,f64), Stri
         i += 1;
     }
 
-    const PIXEL_TO_IN:f64 = 0.0104166667;
-    return Ok( (delays, PIXEL_TO_IN * dim.0 as f64,PIXEL_TO_IN * dim.1 as f64) );
+    // const PIXEL_TO_IN:f64 = 0.0104166667;
+    return Ok( (delays, dim.0 as f64,dim.1 as f64) );
 }
 
 fn basic_template<T>( file: &mut ZipWriter<T> ) -> Result<(), String> where T: Write+Seek {
@@ -97,18 +97,18 @@ fn processing_template<T>( file: &mut ZipWriter<T>, data: (Vec<u16>, f64, f64) )
             xmlns:table='urn:oasis:names:tc:opendocument:xmlns:table:1.0'
             xmlns:text='urn:oasis:names:tc:opendocument:xmlns:text:1.0' xmlns:xlink='http://www.w3.org/1999/xlink'
             xmlns:office='urn:oasis:names:tc:opendocument:xmlns:office:1.0'>
+            <office:styles/>
             <office:automatic-styles>
                 <style:page-layout style:name='pageLayout1'>
-                    <style:page-layout-properties fo:page-width='{}in' fo:page-height='{}in'
-                        style:print-orientation='landscape' style:register-truth-ref-style-name='' />
+                    <style:page-layout-properties fo:page-width='{}px' fo:page-height='{}px'
+                        style:print-orientation='landscape' />
                 </style:page-layout>
             </office:automatic-styles>
             <office:master-styles>
                 <draw:layer-set>
                     <draw:layer draw:name='Master1-bg' draw:protected='true' />
                 </draw:layer-set>
-                <style:master-page style:name='Master1-Layout1' style:page-layout-name='pageLayout1'
-                    draw:style-name='a30'>
+                <style:master-page style:name='Master1' style:page-layout-name='pageLayout1'>
                 </style:master-page>
             </office:master-styles>
         </office:document-styles>", data.1, data.2).as_bytes()
@@ -152,10 +152,9 @@ fn processing_template<T>( file: &mut ZipWriter<T>, data: (Vec<u16>, f64, f64) )
             i, (*f as f64) / 100.0);
 
         let slide = format!("<draw:page draw:name='Slide{0}' draw:style-name='a{0}'
-            draw:master-page-name='Master1-Layout1'
-            presentation:presentation-page-layout-name='Master1-PPL1'>
-                <draw:frame draw:id='id{0}' draw:style-name='a336' draw:name='{0} Imagen' svg:x='0in'
-                    svg:y='0in' svg:width='{1}in' svg:height='{2}in' style:rel-width='scale'
+            draw:master-page-name='Master1'>
+                <draw:frame draw:id='id{0}' draw:style-name='a336' draw:name='{0} Imagen' svg:x='0px'
+                    svg:y='0px' svg:width='{1}px' svg:height='{2}px' style:rel-width='scale'
                     style:rel-height='scale'>
                     <draw:image xlink:href='media/{0}.jpg' xlink:type='simple' xlink:show='embed'
                         xlink:actuate='onLoad' />
@@ -204,7 +203,7 @@ fn main() -> Result<(), String>{
 
     create_dir("dist").map_err(|_| "Could not write template")?;
     create_dir("dist/media").map_err(|_| "Could not write template")?;
-    let info = decode( PathBuf::from("giphy.gif"), PathBuf::from("dist/media/") )?;
+    let info = decode( PathBuf::from("image.gif"), PathBuf::from("dist/media/") )?;
 
     let options = FileOptions::default()
         .compression_method(zip::CompressionMethod::Stored)

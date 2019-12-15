@@ -9,6 +9,7 @@
 	xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
 	xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0">
+	<office:styles/>
 	<office:automatic-styles>
 		<style:page-layout style:name="pageLayout1">
 			<style:page-layout-properties fo:page-width="4.68924in" fo:page-height="4.68924in"
